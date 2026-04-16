@@ -25,6 +25,10 @@ public class 두배만들기서블릿2 extends HttpServlet{
 		
 		int result  = su*2; 
 		
+		resp.setCharacterEncoding("utf-8"); //서버 -> 인코딩 utf-8 (실제 서버가 보낼 때 인코딩)
+		resp.setContentType("text/html;charset=utf-8"); // 클라이언트 (웹브라우저)에게 해석에 대한 정보
+
+		
 		PrintWriter out  = resp.getWriter();
 		out.println("<html>");
 		out.println("<head>");

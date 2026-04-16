@@ -1,4 +1,4 @@
-package day01Prec;
+package 학생.송주창;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,31 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/double01")
-public class 두배만들기서블릿 extends HttpServlet {
+@WebServlet("/dan3")
+public class 구구단3단 extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 
 		
-		int su =5;
-		int result  = 5*2;
+		resp.setCharacterEncoding("utf-8");   
+		resp.setContentType("text/html;charset=utf-8");  
 		
-		resp.setCharacterEncoding("utf-8"); //서버 -> 인코딩 utf-8 (실제 서버가 보낼 때 인코딩)
-		resp.setContentType("text/html;charset=utf-8"); // 클라이언트 (웹브라우저)에게 해석에 대한 정보
-
+		PrintWriter out = resp.getWriter();  
 		
-		//응답하기
-		PrintWriter   out  = resp.getWriter();		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println( result);
+		
+		//3단 제공하기를 별도의 자바파일로 분리하기
+		for(int i = 1; i <= 9; i++) {
+			out.println("3 X " + i + " = " + 3 * i + "<br>");
+		}
 		out.println("</body>");
 		out.println("</html>");
-		
-		
 	}
-
 }
