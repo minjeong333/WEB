@@ -21,14 +21,14 @@ public class 랜덤한귀여운이미지 extends HttpServlet{
 		
 		
 		랜덤한이미지Service service = new 랜덤한이미지Service();
-		String fileName = service.getImgs();
+		String imgs = service.getImgs();
 		
 		PrintWriter out = resp.getWriter();
 		out.println("<h2>귀여운 랜덤 이미지</h2>");
 
 		
 		//⭐<img>태그를 만들어서 출력해야 사진이 나옴!!
-		out.print("<img src='day2prac/imgs/" + fileName + "' alt='랜덤동물'>");
+		out.print(imgs);
 		
 	}
 }
