@@ -1,0 +1,135 @@
+ 
+5일차
+
+힉습목표
+1. Model- DAO  작성해서 데이터베이스에 관련된  CRUD 작업해 본다
+2. 서비스에서 DAO (Repository )객체사용하여 실제 데이터베이스의 정보가 제공되도록 한다.
+3. MVC 웹개발명세 작성해 본다 (2인 1조 설계한 디비 )
+4. response.sendRedirect() 사용해 보기 (요청에 대한 응답으로 재요청하기)
+
+
+mvc 관리프로그램
+등록
+조회
+변경
+삭제
+
+
+오후실습
+ mvc로 crud하기 
+
+AcornDAO    ( 테이블하나 당 DAO한 개가 필요함 )
+1. 고객전체조회
+2. 고객한명조회
+3. 고객정보변경
+4. 고객삭제
+5. 고객등록
+
+AcornService 
+서비스로 만들기
+
+웹요청으로                                            요청이름
+1. 고객전체조회   //서블릿, view(jsp)    /acorn/list
+2. 고객한명조회  // 서블릿, view(jsp)    /acorn/detail
+3. 고객정보변경 //서블릿, view           /acorn/update
+4. 고객삭제    //서블릿, view             /acorn/delete
+5. 고객등록   //서블릿, view            /acorn/reg
+
+
+
+에이콘학생조회하기 
+ -개발명세 작성해보기
+ -개발하기
+  1.서블릿 작성하기
+  2.view작성하기
+  (요청시 view 응답확인하기)
+  3. Model  만들기
+  4. 서비스만들기 
+  5. DAO 만들기
+
+(dao,  service,  servlet , view)   백엔드 개발순서  dao, service, servlet
+
+
+
+
+
+
+/acorn/list    =>  학생정보조회  (응답)
+1.   임시학생정보
+2.   데이터베이스 - 학생정보
+
+
+##################################################
+구현해야할 기능 ( 에이콘학생정보  전체조회 하기)
+요청매핑이름("/acorn/list")
+
+ controller   - 서블릿              AcornServlet  (  doGet)
+ view         -  jsp                   list.jsp 
+ model       - service              AcornService
+                - dao (repository)  AconDAO
+                - dto                   Acorn
+
+
+
+#################################################
+에이콘학생 등록하기 
+요청매핑("/acorn/reg" )  - get  , post
+
+controller  - AcirbregServlet 
+get -> 등록화면 
+post -> 등록기능 
+
+view- > regForm.jsp ( 등록화면)
+           okForm.jsp ( 등록성공페이지)
+
+model - service      AcornService 
+          - dao         AcornDAO
+          - dto          Acorn
+
+
+###################################################
+에이콘 학생 한명 조회하기 (id로 조회하기)
+//id로 조회하기
+요청매핑("/acorn/detail")   -- get 
+controller- 서블릿    AcornOneServlet 
+view -jsp                member.jsp ( 한 학생의 정보조회)
+model  - service      AcornService  -  Acorn getMember( String id)
+             dao          AcornDAO   -   Acorn  selectOne( String id)
+             dto           Acorn
+
+
+####################################################
+변경 ( "/acorn/update")
+controller  - AcornUpdateServlet -  post
+view        -   updateok.jsp
+model -    Service   AcornService    void modifyMember( String id, String newpw)
+               Dao  -   AcornDAO        void update(  String id, String newpw)
+
+
+
+
+
+
+오후실습 예시)
+
+1) DAO작성해보기
+2) 개발명세 작성해보기     2인 1조 
+
+
+create table  goodstbl(
+    id varchar2(20) primary key,
+    name  varchar2(30) ,
+    price number(4)
+);
+
+insert into values( 'c001' , '아이스아메리카노' , 2000);
+insert into values( 'c002' , '바닐라라떼' , 2800);
+insert into values( 'c003' , '카라멜마키야또' , 3800);
+
+
+
+ 
+
+
+ 
+
