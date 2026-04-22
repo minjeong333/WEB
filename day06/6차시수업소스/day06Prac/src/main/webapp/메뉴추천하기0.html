@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+function getFood(){
+	//alert("dkdkdk");
+	window.location.href="/day06Prac/food0";
+}
+
+function getFood2(){
+	
+	//jquery -- ajax()사용하기 --외부라이브러리
+	//$.ajax();
+	$.ajax(
+		{
+			type:"get",
+			url:"/day06Prac/food0",
+			success:function(data){
+				console.log(data);
+				//
+				document.getElementById("result").innerHTML=data;
+				$("#result").html(data);
+				
+			},
+			error:function(error){
+				console.log(error)
+			}
+		}
+	);
+}
+
+
+</script>
+</head>
+<body>
+
+<button onclick="getFood()">메뉴추천</button>
+<a href="/day06Prac/food0">메뉴추천 </a>
+
+
+<button onclick="getFood2()">메뉴추천 ajax</button>
+
+<div id="result">rhrhrhrhrh</div>
+
+
+</body>
+</html>

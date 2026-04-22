@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+//동기작업
+/*
+console.log("주문");
+console.log("커피 받기");
+console.log("마시기");
+
+//비동기작업
+console.log("주문"); 
+setTimeout( function(){ "커피받기"}  , 2000);
+console.log("마시기");
+*/
+
+//비동기작업의 수행결과를 얻고 싶다면
+//콜백함수사용하기
+
+function 음료주문하기( drinkName, cb  ){ //cb는 callback함수(= 매개변수가 있는 함수)
+	setTimeout(function(){
+		//음료만들기
+		let drink = drinkName + "완성";
+		cb(drink);
+		
+	},  2000);
+}
+
+음료주문하기("아이스라떼", function( data){ 
+	console.log(data + "^^^");
+});
+	
+
+</script>
+
+</head>
+<body>
+
+
+</body>
+</html>
