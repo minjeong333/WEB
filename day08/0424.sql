@@ -1,0 +1,55 @@
+
+
+
+SELECT * FROM MEMBER_TBL_11;
+
+
+
+--현재 : 1페이지, 4개씩 보여야 함
+SELECT * FROM MEMBER_TBL_11;
+
+
+
+
+--현재 : 2페이지, 4개씩 보여야 함
+--SELECT * 
+--FROM MEMBER_TBL_11
+--WERHE ROWNUM BETWEEN 5 AND 8 ;                ==ROWNUM이 SELECT로 조회결과가 만들어질 때 부여됨, 
+
+
+--서브쿼리이용
+SELECT *
+FROM 
+(
+    SELECT  ROWNUM NUM,  M_ID, M_PW, M_NAME, M_TEL, M_BIRTHDAY, M_POINT, M_GRADE FROM MEMBER_TBL_11
+
+);
+
+--NUM컬럼 이용하여 페이징
+--1페이지를 4개씩 보는 것
+SELECT *
+FROM 
+(
+    SELECT  ROWNUM NUM,  M_ID, M_PW, M_NAME, M_TEL, M_BIRTHDAY, M_POINT, M_GRADE FROM MEMBER_TBL_11
+
+)WHERE NUM BETWEEN 1 AND 4;
+
+
+--NUM컬럼 이용하여 페이징
+--2페이지를 4개씩 보는 것
+SELECT *
+FROM 
+(
+    SELECT  ROWNUM NUM,  M_ID, M_PW, M_NAME, M_TEL, M_BIRTHDAY, M_POINT, M_GRADE FROM MEMBER_TBL_11
+
+)WHERE NUM BETWEEN 5 AND 8;
+
+
+--NUM컬럼 이용하여 페이징
+--3페이지를 4개씩 보는 것
+SELECT *
+FROM 
+(
+    SELECT  ROWNUM NUM,  M_ID, M_PW, M_NAME, M_TEL, M_BIRTHDAY, M_POINT, M_GRADE FROM MEMBER_TBL_11
+
+)WHERE NUM BETWEEN 9 AND 12;
