@@ -1,0 +1,19 @@
+<error-page>
+		<error-code>404</error-code>
+		<location>/errorHandle2</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/errorHandle</location>
+	</error-page>
+
+
+
+
+
+======================
+<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/errorHandle</location>
+	</error-page>
